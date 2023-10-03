@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {Box, Slider} from "@mui/material";
-import {FilterContext} from "../App.jsx";
+import {FilterContext} from "../ImageEditorFinish.jsx";
 
 const SlaiderF = ({slide}) => {
     const styleBOne ={display:'flex', alignItems:'center', gap:'1rem',marginBottom:'1rem'}

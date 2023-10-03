@@ -1,13 +1,13 @@
 import React, {createContext, useState} from "react";
 import {Box, Container, Grid} from "@mui/material";
-import ImageFiled from "./Compnent/ImageFiled.jsx";
-import FilterTabs from "./Compnent/FilterTabs.jsx";
-import InstaFilter from "./Compnent/InstaFilter.jsx";
-import CustomFilter from "./Compnent/CustomFilter.jsx";
+import ImageFiled from "./ImageEditor/ImageFiled.jsx";
+import FilterTabs from "./ImageEditor/FilterTabs.jsx";
+import InstaFilter from "./ImageEditor/InstaFilter.jsx";
+import CustomFilter from "./ImageEditor/CustomFilter.jsx";
 export const FilterContext = createContext();
 
 
-const App =()=> {
+const ImageEditorFinish =()=> {
     const [tabFilter, setTabFilter] = useState('instaFilter')
     const [filterClass , setFilterClass] = useState('')
     const [customFilter, setCustomFilter] = useState({
@@ -46,4 +46,4 @@ return (
     </FilterContext.Provider>
 )
 }
-export default App;
+export default ImageEditorFinish;

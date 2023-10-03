@@ -1,10 +1,10 @@
 import React, {useContext, useRef, useState} from 'react';
 import {styled,Box} from "@mui/system";
 import {Button, Grid} from "@mui/material";
-import {FilterContext} from "../App.jsx";
+import {FilterContext} from "../ImageEditorFinish.jsx";
 import { saveAs } from 'file-saver';
 import domtoimage from 'dom-to-image';
-import "../Compnent/Style/InstaFltr.scss"
+import ".//Style/InstaFltr.scss"
 
 
 const StyleBox = styled(Box)({

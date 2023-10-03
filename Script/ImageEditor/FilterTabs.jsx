@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {Tabs, Tab, Box} from "@mui/material";
-import {FilterContext} from "../App.jsx";
+import {FilterContext} from "../ImageEditorFinish.jsx";
 
 const FilterTabs = () => {
     const {tabFilter, setTabFilter, setFilterClass} = useContext(FilterContext);

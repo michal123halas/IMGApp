@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {Box, FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import {filterValues} from "../Database/untlis.jsx";
-import {FilterContext} from "../App.jsx";
+import {FilterContext} from "../ImageEditorFinish.jsx";
 
 const InstaFilter = () => {
     const {filterClass , setFilterClass} = useContext(FilterContext)
