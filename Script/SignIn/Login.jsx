@@ -1,22 +1,7 @@
 import React ,{useState}from 'react';
 import { getAuth, signInWithEmailAndPassword,GoogleAuthProvider,signInWithPopup } from 'firebase/auth';
-
-import app from "./GoogleSDK.jsx";
 import {styleForm} from "./Registration.jsx";
-
-
-
-
-
-const style = {
-    width:'100vw',
-    height:'100vh',
-    display:'flex',
-    justifyContent:'center',
-    alignItems:'center',
-
-}
-
+import {styleDiv} from "./Registration.jsx"
 
 const Login = () => {
     const [errorMessage, setErrorMessage] = useState('');
@@ -85,7 +70,7 @@ const Login = () => {
 
 
 
-<div style={style}>
+<div style={styleDiv}>
     <form style={styleForm} onSubmit={handleRegistration}>
         <label htmlFor='email'>Email</label><br />
         <input type='email' name='email' /><br />

@@ -4,7 +4,7 @@ import ImageFiled from "./ImageEditor/ImageFiled.jsx";
 import FilterTabs from "./ImageEditor/FilterTabs.jsx";
 import InstaFilter from "./ImageEditor/InstaFilter.jsx";
 import CustomFilter from "./ImageEditor/CustomFilter.jsx";
-import Header from "./InterfaceComponents/Header.jsx";
+
 
 export const FilterContext = createContext();
 

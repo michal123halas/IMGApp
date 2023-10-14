@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {Box, FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import {filterValues} from "../Database/untlis.jsx";
 import {FilterContext} from "../ImageEditorFinish.jsx";
@@ -9,13 +9,9 @@ const InstaFilter = () => {
     return (
      <Box sx={{maxWidth:'300'}}>
          <FormControl fullWidth>
-             <InputLabel>Filter</InputLabel>
-             <Select onChange={handleChange} value={filterClass} label='Filter'>
+             <InputLabel style={{color:'white'}}>Filter</InputLabel>
+             <Select style={{color:'white'}} onChange={handleChange} value={filterClass} label='Filter'>
                  {filterValues.map(i => <MenuItem value={i.class} key={i.class}>{i.name}</MenuItem>)}
-
-
-
-
              </Select>
          </FormControl>
      </Box>

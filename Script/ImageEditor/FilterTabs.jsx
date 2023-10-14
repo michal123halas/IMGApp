@@ -14,8 +14,8 @@ const FilterTabs = () => {
         <Box sx={{marginBottom:'2rem'}}>
         <Tabs value={tabFilter} onChange={handleChange} textColor='secondary' indicatorColor='secondary'>
 
-            <Tab value='instaFilter' label='Instagram Filtr'/>
-            <Tab value='customFilter' aria-selected='true' label='Custom Filter'/>
+            <Tab value='instaFilter' style={{color:'white'}}label='Instagram Filtr'/>
+            <Tab value='customFilter'style={{color:'white'}} aria-selected='true' label='Custom Filter'/>
         </Tabs>
         </Box>
     );

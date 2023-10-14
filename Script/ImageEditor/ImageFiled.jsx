@@ -7,6 +7,8 @@ import domtoimage from 'dom-to-image';
 import ".//Style/InstaFltr.scss"
 import { storage} from "../Database/GoogleStorge.jsx";
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faArrowRightToBracket, faCloudArrowUp, faFolder, faFolderOpen} from '@fortawesome/free-solid-svg-icons';
 
 
 const StyleBox = styled(Box)({
@@ -94,11 +96,11 @@ const ImageFiled = () => {
     return (
         <Grid item xs={12} md={7}>Image
          <StyleBox onClick={()=>{upLoadInputRef.current && upLoadInputRef.current.click()}}>
-             {imageFile ? renderImage() : <p>UploadImage</p>}
+             {imageFile ? renderImage() : <p style={{color:'black'}}><FontAwesomeIcon icon={faFolderOpen} style={{margin:' 0 10px 0 10px',}}/>UploadImage</p>}
          </StyleBox>
             <input ref={upLoadInputRef} onChange={handleChangeInput} type="file" accept="image/*" hidden/>
-            <Button onClick={downoladImage} disabled={!imageFile} variant='contained'>Download</Button>
-            <Button onClick={uploadImageToFirebase} disabled={!imageFile} variant="contained">Upload to Firebase</Button>
+            <Button onClick={downoladImage} disabled={!imageFile} variant='contained'><FontAwesomeIcon icon={faFolder} style={{margin:' 0 10px 0 10px'}}/>Download</Button>
+            <Button style={{marginLeft:'50px'}} onClick={uploadImageToFirebase} disabled={!imageFile} variant="contained"><FontAwesomeIcon icon={faCloudArrowUp} style={{margin:' 0 10px 0 10px'}}/>Upload to Firebase</Button>
         </Grid>
 
     );

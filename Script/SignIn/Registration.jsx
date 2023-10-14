@@ -1,19 +1,31 @@
-import React, { useEffect ,useState} from 'react';
+import React, { useState} from 'react';
 
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 export const styleForm = {
-    // width:'100vw',
-    // height:'100vh',
+
     display:'flex',
     justifyContent:'center',
     alignItems:'center',
     flexDirection:'column',
     backgroundColor:'white',
     color:'black',
-    padding:'80px',
-    border: '5px solid green'
+    padding:'50px',
+    border: '30px solid green',
+    borderRadius: '10px',
+
 }
+export const styleDiv = {
+    width:'100vw',
+    height:'100vh',
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center',
+
+
+
+}
+
 
 const Registration = () => {
     const [isRegistered, setIsRegistered] = useState(false);
@@ -67,7 +79,7 @@ const Registration = () => {
 
 
     return (
-
+        <div style={styleDiv}>
         <form  style={styleForm} onSubmit={handleRegistration}>
             <label htmlFor='email'>Email</label><br/>
             <input type='email' name='email' /><br/>
@@ -82,6 +94,7 @@ const Registration = () => {
             <button onClick={handleGoogleSignIn}>Sign in with Google</button>
 
         </form>
+        </div>
     );
 };
 
