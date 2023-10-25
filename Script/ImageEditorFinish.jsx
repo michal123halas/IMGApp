@@ -40,7 +40,7 @@ return (
     <>
 
 
-    <FilterContext.Provider value={value}>
+    <FilterContext.Provider va lue={value}>
 <Container sx={{marginTop:'4rem',marginBottom:'4rem'}}>
     <Box sx={{textAlign:'center',marginBottom:'3rem'}}>
         <h1>Image Filter</h1>
