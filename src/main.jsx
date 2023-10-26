@@ -1,6 +1,6 @@
 import React from 'react';
 import * as ReactDOM from "react-dom/client";
-import { createRoot } from 'react-dom/client';
+
 import {
     createBrowserRouter,
     RouterProvider,
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
 
     {
         path: "/editor",
-        element: <ImageEditorFinish/> 
+        element: <ImageEditorFinish/>
     },
     {
         path: "/registration",
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/login",
-        element: <Login/> 
+        element: <Login/>
     },
     {
         path: "/reset",

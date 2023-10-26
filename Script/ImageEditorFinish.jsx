@@ -1,4 +1,4 @@
-import React, {createContext, useState,useContext} from "react";
+import React, {createContext, useState,} from "react";
 import {Box, Container, Grid} from "@mui/material";
 import ImageFiled from "./ImageEditor/ImageFiled.jsx";
 import FilterTabs from "./ImageEditor/FilterTabs.jsx";
@@ -40,7 +40,7 @@ return (
     <>
 
 
-    <FilterContext.Provider va lue={value}>
+    <FilterContext.Provider value={value}>
 <Container sx={{marginTop:'4rem',marginBottom:'4rem'}}>
     <Box sx={{textAlign:'center',marginBottom:'3rem'}}>
         <h1>Image Filter</h1>

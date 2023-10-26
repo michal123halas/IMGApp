@@ -1,4 +1,4 @@
-import React ,{useState}from 'react';
+import  {useState}from 'react';
 import { getAuth, signInWithEmailAndPassword,GoogleAuthProvider,signInWithPopup } from 'firebase/auth';
 import {styleForm} from "./Registration.jsx";
 import {styleDiv} from "./Registration.jsx"
