@@ -2,6 +2,7 @@ import React, {  useEffect,useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser,faHouse,faImage,faUsers,faHandshake,faArrowDown,faArrowUp,faArrowRightToBracket} from '@fortawesome/free-solid-svg-icons';
 import { getAuth, onAuthStateChanged ,signOut} from 'firebase/auth';
+import {Link} from "react-router-dom";
 
 
 export const styleHeaderAndFooter = {
@@ -22,6 +23,7 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [logOutMenu, setLogOutMenu] = useState(false)
     const [arrowIcon, setArrowIcon] = useState(false)
+    const [flex , setFlex] = useState('flex')
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -55,8 +57,8 @@ const Header = () => {
         const auth = getAuth();
         signOut(auth)
             .then(() => {
-                window.location.href = '/login';
                 console.log('Good');
+                setFlex('none')
 
             })
             .catch((error) => {
@@ -64,26 +66,7 @@ const Header = () => {
             });
     };
 
-    const moveMenu = ()=>{
-        window.location.href = '/';
-    }
-    const moveEditor = () => {
-        const auth = getAuth();
-        const user = auth.currentUser;
 
-        if (user && isEmailVerified) {
-            window.location.href = '/editor';
-        } else {
-
-            window.location.href = '/login';
-        }
-    };
-    const moveRegistration = ()=>{
-        window.location.href = '/registration';
-    }
-    const moveLogin = ()=>{
-        window.location.href = '/login';
-    }
 
     return (
         <>
@@ -106,15 +89,28 @@ const Header = () => {
         </header>
     {isMenuOpen && (
         <ul style={{ listStyleType: 'none', padding: 0 }}>
-            <li style={{cursor:'pointer', border:'2px solid blue', marginTop:'30px',padding:'10px',borderRadius:'10px',fontFamily:'initial'}} ><FontAwesomeIcon icon={faHouse} style={{margin:' 0 10px 0 10px'}}/><a onClick={moveMenu}>Home</a></li>
-            <li style={{cursor:'pointer', border:'2px solid blue', marginTop:'10px',padding:'10px',borderRadius:'10px',fontFamily:'initial'}}><FontAwesomeIcon icon={faImage} style={{margin:' 0 10px 0 10px'}}/><a onClick={moveEditor}>Editor</a></li>
-            <li style={{cursor:'pointer', border:'2px solid blue', marginTop:'10px',padding:'10px',borderRadius:'10px',fontFamily:'initial'}}><FontAwesomeIcon icon={faHandshake} style={{margin:' 0 10px 0 10px'}}/><a onClick={moveRegistration}>Registration</a></li>
-            <li style={{cursor:'pointer', border:'2px solid blue', marginTop:'10px',padding:'10px',borderRadius:'10px',fontFamily:'initial'}}><FontAwesomeIcon icon={faUsers} style={{margin:' 0 10px 0 10px'}}/><a onClick={moveLogin}>Login</a></li>
+            <li style={{cursor:'pointer', border:'2px solid blue', marginTop:'30px',padding:'10px',borderRadius:'10px',fontFamily:'initial'}} ><FontAwesomeIcon icon={faHouse} style={{margin:' 0 10px 0 10px'}}/>
+                <Link to="/">Home  </Link>
+           </li>
+            <li style={{cursor: 'pointer', border: '2px solid blue', marginTop: '10px', padding: '10px', borderRadius: '10px', fontFamily: 'initial'}}>
+                <FontAwesomeIcon icon={faImage} style={{margin: '0 10px 0 10px'}}/>
+                {userName ? (
+                    <Link to="/editor">Editor</Link>
+                ) : (
+                    <Link to="/login">Editor</Link>
+                )}
+            </li>
+            <li style={{cursor:'pointer', border:'2px solid blue', marginTop:'10px',padding:'10px',borderRadius:'10px',fontFamily:'initial'}}><FontAwesomeIcon icon={faHandshake} style={{margin:' 0 10px 0 10px'}}/>
+                <Link to="/registration">Register  </Link>
+            </li>
+            <li style={{cursor:'pointer', border:'2px solid blue', marginTop:'10px',padding:'10px',borderRadius:'10px',fontFamily:'initial'}}><FontAwesomeIcon icon={faUsers} style={{margin:' 0 10px 0 10px'}}/>
+                <Link to="/login">Login  </Link>
+            </li>
         </ul>
     )}
             {logOutMenu && (
                 <div style={{width:'100%', display:'flex', justifyContent:'flex-end'}}>
-                    <button  style={{borderRadius:'10px solid red', backgroundColor:'red',marginTop:'30px'}} onClick={handleSignOut}><FontAwesomeIcon icon={faArrowRightToBracket} style={{margin:' 0 10px 0 10px'}}/>LogOut</button>
+                    <button  style={{borderRadius:'10px solid red', backgroundColor:'red',marginTop:'30px', display:`${flex}`}} onClick={handleSignOut}><FontAwesomeIcon icon={faArrowRightToBracket} style={{margin:' 0 10px 0 10px'}}/>  <Link style={{color:'white',height:'100px'}} to="/login">LogOut</Link></button>
                 </div>
             )}
         </>

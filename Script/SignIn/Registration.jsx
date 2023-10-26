@@ -1,6 +1,8 @@
 import React, { useState} from 'react';
 
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import {Link} from "react-router-dom";
+import {styleLink} from "./Login.jsx";
 
 export const styleForm = {
 
@@ -31,6 +33,7 @@ const Registration = () => {
     const [isRegistered, setIsRegistered] = useState(false);
     const [passwordVoid, SetPasswordVoid] = useState(true)
     const [isAccountTaken, setIsAccountTaken] = useState(false);
+    const [isLogin, setIsLogin] = useState(false)
 
     const handleRegistration = async (event) => {
         event.preventDefault();
@@ -52,7 +55,7 @@ const Registration = () => {
             setIsRegistered(false)
 
 
-            window.location.href = '/login';
+
 
 
         } catch (error) {
@@ -68,9 +71,10 @@ const Registration = () => {
 
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
-            window.location.href = '/editor';
+
 
             console.log('User signed in with Google:', user);
+            setIsLogin(true)
 
         } catch (error) {
             console.error('Error signing in with Google:', error);
@@ -79,7 +83,9 @@ const Registration = () => {
 
 
     return (
+
         <div style={styleDiv}>
+            {isLogin ? (<Link style={styleLink} to='/editor'>Have a great time!" 🎉<br/>Click mi!! 🤖 </Link>):(
         <form  style={styleForm} onSubmit={handleRegistration}>
             <label htmlFor='email'>Email</label><br/>
             <input type='email' name='email' /><br/>
@@ -89,11 +95,12 @@ const Registration = () => {
             <input type='password' name='repeatPassword' /><br/>
             {!passwordVoid && <div style={{ color: 'red' }}>Passwords do not match.</div>}
             {isAccountTaken && <div style={{ color: 'red' }}>Account is already taken.</div>}
-            {isRegistered && <div style={{ color: 'green' }}>Registration successful.</div>}
+            {isRegistered && <div style={{ color: 'green' }}>Registration successful. Please go verify your email. </div>}
             <button style={{marginBottom:'20px'}} type='submit'>Registration</button>
             <button onClick={handleGoogleSignIn}>Sign in with Google</button>
 
         </form>
+            )}
         </div>
     );
 };
